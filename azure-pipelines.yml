@@ -16,7 +16,7 @@ steps:
     provider: 'azurerm'
     command: 'init'
     workingDirectory: 'D:\Dilip\Pipeline-code'
-    backendServiceArm: 'JhaAshwiniPipeline'
+    backendServiceArm: 'AgentVinod2'
     backendAzureRmStorageAccountName: 'dilipstg1'
     backendAzureRmContainerName: 'dilip-con1'
     backendAzureRmKey: 'dku.tfstate'
@@ -26,14 +26,14 @@ steps:
     provider: 'azurerm'
     command: 'plan'
     workingDirectory: 'D:\Dilip\Pipeline-code'
-    environmentServiceNameAzureRM: 'JhaAshwiniPipeline'
+    environmentServiceNameAzureRM: 'AgentVinod2'
 
 - task: TerraformTask@5
   inputs:
     provider: 'azurerm'
     command: 'apply'
     workingDirectory: 'D:\Dilip\Pipeline-code'
-    environmentServiceNameAzureRM: 'JhaAshwiniPipeline'
+    environmentServiceNameAzureRM: 'AgentVinod2'
 
 
 
