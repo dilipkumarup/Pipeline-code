@@ -1,0 +1,43 @@
+# Starter pipeline
+
+trigger:
+- main
+
+pool: hamare_agentka_Jhund
+
+steps:
+
+- task: TerraformInstaller@1
+  inputs:
+    terraformVersion: 'latest'
+
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    workingDirectory: 'D:\Dilip\Pipeline-code'
+    backendServiceArm: 'AgentVinod2'
+    backendAzureRmStorageAccountName: 'dilipstg1'
+    backendAzureRmContainerName: 'dilip-con1'
+    backendAzureRmKey: 'dku.tfstate'
+
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'plan'
+    workingDirectory: 'D:\Dilip\Pipeline-code'
+    environmentServiceNameAzureRM: 'AgentVinod2'
+
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'apply'
+    workingDirectory: 'D:\Dilip\Pipeline-code'
+    environmentServiceNameAzureRM: 'AgentVinod2'
+
+
+
+
+
+
+
